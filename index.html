@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasbela Shop - Complete Online Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff6a00;
+            --secondary: #f57224;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #9e9e9e;
+            --white: #ffffff;
+            --success: #4CAF50;
+            --danger: #f44336;
+            --warning: #ff9800;
+            --info: #2196F3;
+            --google: #DB4437;
+            --facebook: #4267B2;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .owner-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .owner-info i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+
+        .top-bar-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 13px;
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1;
+            max-width: 600px;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid var(--primary);
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .header-action i {
+            font-size: 22px;
+            color: var(--dark);
+        }
+
+        .header-action span {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .user-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            width: 200px;
+            padding: 10px 0;
+            display: none;
+            z-index: 1000;
+        }
+
+        .user-menu.active {
+            display: block;
+        }
+
+        .user-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        .user-menu a:hover {
+            background-color: var(--light);
+        }
+
+        .cart-count {
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            border-top: 1px solid #eee;
+        }
+
+        .nav-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            padding: 15px 20px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+        }
+
+        .nav-item i {
+            margin-left: 5px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 50px;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .hero-banner h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero-banner p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            max-width: 500px;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+        }
+
+        .btn-info {
+            background-color: var(--info);
+        }
+
+        .btn-google {
+            background-color: var(--google);
+        }
+
+        .btn-facebook {
+            background-color: var(--facebook);
+        }
+
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Categories */
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category i {
+            font-size: 30px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .category span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .product {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--danger);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .original-price {
+            font-size: 14px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background-color: #ff0000;
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .seller-info {
+            font-size: 12px;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            padding: 10px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--secondary);
+        }
+
+        .buy-now {
+            padding: 10px 15px;
+            background-color: var(--success);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .buy-now:hover {
+            background-color: #3d8b40;
+        }
+
+        .chat-with-seller {
+            width: 100%;
+            padding: 8px;
+            background-color: var(--info);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 5px;
+            transition: all 0.3s;
+        }
+
+        .chat-with-seller:hover {
+            background-color: #1e87d3;
+        }
+
+        /* Chat System */
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            margin-bottom: 10px;
+        }
+
+        .message.sent {
+            align-self: flex-end;
+            background: var(--primary);
+            color: white;
+        }
+
+        .message.received {
+            align-self: flex-start;
+            background: #f1f1f1;
+            color: var(--dark);
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            margin-right: 10px;
+        }
+
+        .chat-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Order System */
+        .order-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .address-form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* My Account Sections */
+        .account-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .account-section.active {
+            display: block;
+        }
+
+        .account-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        .account-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        .account-tab.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Social Login */
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #eee;
+        }
+
+        .divider span {
+            background-color: white;
+            padding: 0 15px;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdbdbd;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-col .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255,255,255,0.1);
+            margin-right: 10px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+
+        .footer-col .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #bdbdbd;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .categories {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-banner {
+                height: 300px;
+                padding: 0 30px;
+            }
+            
+            .hero-banner h1 {
+                font-size: 32px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .chat-container {
+                width: 300px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                overflow-x: auto;
+            }
+            
+            .top-bar-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .top-bar-links {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <div class="owner-info">
+                    <i class="fas fa-store"></i>
+                    <span>Owner: Nawaz Ali Shaikh | Contact: 0346-1280347</span>
+                </div>
+                <div class="top-bar-links">
+                    <a href="#" id="become-seller">Sell on Lasbela Shop</a>
+                    <a href="#">Customer Care</a>
+                    <a href="#">Track Order</a>
+                    <a href="#" id="login-btn">Sign In / Register</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="logo-text">Lasbela <span>Shop</span></div>
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products, brands and categories...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="header-action" id="user-menu-toggle">
+                        <i class="fas fa-user"></i>
+                        <span id="user-name">Account</span>
+                        <div class="user-menu" id="user-menu">
+                            <a href="#" id="my-account-link">My Account</a>
+                            <a href="#" id="my-orders-link">My Orders</a>
+                            <a href="#" id="my-addresses-link">My Addresses</a>
+                            <a href="#" id="seller-center-link">Seller Center</a>
+                            <a href="#" id="logout-link">Logout</a>
+                        </div>
+                    </div>
+                    <div class="header-action">
+                        <div class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div class="cart-count">0</div>
+                        </div>
+                        <span>Cart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="nav-container">
+                <div class="nav-item">All Categories <i class="fas fa-chevron-down"></i></div>
+                <div class="nav-item">Mobile Phones</div>
+                <div class="nav-item">Electronics</div>
+                <div class="nav-item">Home & Lifestyle</div>
+                <div class="nav-item">Men's Fashion</div>
+                <div class="nav-item">Women's Fashion</div>
+                <div class="nav-item">Health & Beauty</div>
+                <div class="nav-item">Groceries</div>
+                <div class="nav-item">Sports & Outdoor</div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Hero Banner -->
+            <section class="hero-banner">
+                <h1>Pakistan's Favorite Online Shopping</h1>
+                <p>Best deals on mobiles, electronics, fashion, home appliances and more. Cash on Delivery available.</p>
+                <a href="#" class="btn">Shop Now</a>
+            </section>
+            
+            <!-- Categories -->
+            <h2 class="section-title">Shop By Category</h2>
+            <div class="categories">
+                <div class="category">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Phones</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-laptop"></i>
+                    <span>Laptops</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Fashion</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-home"></i>
+                    <span>Home Appliances</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Gaming</span>
+                </div>
+                <div class="category">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health & Beauty</span>
+                </div>
+            </div>
+            
+            <!-- Flash Sale -->
+            <h2 class="section-title">Flash Sale</h2>
+            <div class="products" id="products-container">
+                <!-- Products will be added dynamically with JavaScript -->
+            </div>
+
+            <!-- My Account Sections -->
+            <div class="account-section" id="my-account-section">
+                <h2 class="section-title">My Account</h2>
+                
+                <div class="account-tabs">
+                    <div class="account-tab active" data-tab="profile">Profile</div>
+                    <div class="account-tab" data-tab="orders">My Orders</div>
+                    <div class="account-tab" data-tab="addresses">My Addresses</div>
+                    <div class="account-tab" data-tab="wishlist">Wishlist</div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="account-content active" id="profile-content">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profile-name" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="profile-email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="profile-phone" placeholder="03XX-XXXXXXX">
+                    </div>
+                    <button class="btn" id="update-profile">Update Profile</button>
+                </div>
+
+                <!-- Orders Tab -->
+                <div class="account-content" id="orders-content">
+                    <h3>Order History</h3>
+                    <div id="orders-list">
+                        <!-- Orders will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Addresses Tab -->
+                <div class="account-content" id="addresses-content">
+                    <h3>Saved Addresses</h3>
+                    <button class="btn" id="add-address-btn">Add New Address</button>
+                    <div id="addresses-list">
+                        <!-- Addresses will be loaded here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommended Products -->
+            <h2 class="section-title">Recommended For You</h2>
+            <div class="products" id="recommended-products">
+                <!-- Products will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Chat System -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <span id="chat-title">Chat with Seller</span>
+            <button class="close-chat" id="close-chat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-login">&times;</span>
+            <h2>Welcome to Lasbela Shop</h2>
+            
+            <!-- Social Login Buttons -->
+            <div class="social-login">
+                <button class="social-btn btn-google" id="google-login">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+                <button class="social-btn btn-facebook" id="facebook-login">
+                    <i class="fab fa-facebook-f"></i> Continue with Facebook
+                </button>
+            </div>
+            
+            <div class="divider">
+                <span>or</span>
+            </div>
+            
+            <!-- Email Login Form -->
+            <div class="form-group">
+                <label for="login-email">Email or Phone</label>
+                <input type="text" id="login-email" placeholder="Enter your email or phone">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <button class="btn" style="width: 100%;" id="login-submit">Sign In</button>
+            </div>
+            <p>New to Lasbela Shop? <a href="#" id="switch-to-register">Create Account</a></p>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-order">&times;</span>
+            <h2>Complete Your Order</h2>
+            
+            <div class="order-container">
+                <div id="order-summary">
+                    <!-- Order summary will be loaded here -->
+                </div>
+                
+                <div class="address-form">
+                    <h3>Delivery Address</h3>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="delivery-name" placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="delivery-phone" placeholder="03XX-XXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea id="delivery-address" rows="3" placeholder="Enter complete address"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" id="delivery-city" placeholder="Enter city">
+                        </div>
+                        <div class="form-group">
+                            <label>Postal Code</label>
+                            <input type="text" id="delivery-postal" placeholder="Postal code">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-success" style="width: 100%; margin-top: 20px;" id="confirm-order">
+                    Confirm Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">How to Buy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Make Money With Us</h3>
+                <ul>
+                    <li><a href="#">Sell on Lasbela Shop</a></li>
+                    <li><a href="#">Become an Affiliate</a></li>
+                    <li><a href="#">Advertise Your Products</a></li>
+                    <li><a href="#">Seller Center</a></li>
+                    <li><a href="#">Flash Deals</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Payment Methods</h3>
+                <ul>
+                    <li><a href="#">EasyPaisa</a></li>
+                    <li><a href="#">JazzCash</a></li>
+                    <li><a href="#">Visa/MasterCard</a></li>
+                    <li><a href="#">Bank Transfer</a></li>
+                    <li><a href="#">Cash on Delivery</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <p>Stay connected with us for the latest offers and updates</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Lasbela Shop - All Rights Reserved | Owner: Nawaz Ali Shaikh | Contact: 0346-1280347
+        </div>
+    </footer>
+
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'https://api.lasbelashop.com'; // Replace with your actual API URL
+        
+        // Mock APIs for demonstration
+        const mockAPIs = {
+            // User Authentication APIs
+            login: async (email, password) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            user: {
+                                id: 1,
+                                name: "Test User",
+                                email: email,
+                                phone: "0346-1280347"
+                            },
+                            token: "mock_jwt_token_12345"
+                        });
+                    }, 1000);
+                });
+            },
+
+            // Google Login API
+            googleLogin: async (token) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            user: {
+                                id: 2,
+                                name: "Google User",
+                                email: "user@gmail.com",
+                                phone: "0300-1234567"
+                            },
+                            token: "google_mock_token_12345"
+                        });
+                    }, 1000);
+                });
+            },
+
+            // Facebook Login API
+            facebookLogin: async (token) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            user: {
+                                id: 3,
+                                name: "Facebook User",
+                                email: "user@facebook.com",
+                                phone: "0312-7654321"
+                            },
+                            token: "facebook_mock_token_12345"
+                        });
+                    }, 1000);
+                });
+            },
+
+            // Product APIs
+            getProducts: async () => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            products: [
+                                {
+                                    id: 1,
+                                    name: "Samsung Galaxy S21 Ultra 5G (256GB)",
+                                    price: 124999,
+                                    originalPrice: 149999,
+                                    image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                                    rating: 4.5,
+                                    reviews: 245,
+                                    seller: "TechHub Pakistan",
+                                    sellerId: 101,
+                                    sellerVerified: true,
+                                    badge: "Trending",
+                                    category: "Mobile Phones",
+                                    description: "Latest Samsung flagship with 5G support, 108MP camera, and 5000mAh battery.",
+                                    specifications: {
+                                        "Display": "6.8 inch Dynamic AMOLED",
+                                        "Camera": "108MP + 10MP + 10MP + 12MP",
+                                        "Battery": "5000mAh",
+                                        "Storage": "256GB"
+                                    }
+                                },
+                                {
+                                    id: 2,
+                                    name: "Nike Air Max Running Shoes - Men's",
+                                    price: 8499,
+                                    originalPrice: 12999,
+                                    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                                    rating: 4,
+                                    reviews: 189,
+                                    seller: "Sports Gear",
+                                    sellerId: 102,
+                                    sellerVerified: true,
+                                    badge: "35% OFF",
+                                    category: "Sports & Outdoor",
+                                    description: "Comfortable running shoes with Air Max technology for maximum cushioning.",
+                                    specifications: {
+                                        "Material": "Mesh and Synthetic",
+                                        "Sole": "Rubber",
+                                        "Closure": "Lace-up",
+                                        "Color": "Black/White"
+                                    }
+                                }
+                            ]
+                        });
+                    }, 500);
+                });
+            },
+
+            // Order APIs
+            createOrder: async (orderData) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            orderId: "ORD-" + Date.now(),
+                            message: "Order placed successfully!"
+                        });
+                    }, 1000);
+                });
+            },
+
+            getOrders: async (userId) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            orders: [
+                                {
+                                    id: "ORD-12345",
+                                    date: "2023-10-15",
+                                    status: "Delivered",
+                                    total: 124999,
+                                    items: [
+                                        {
+                                            productId: 1,
+                                            name: "Samsung Galaxy S21 Ultra 5G",
+                                            price: 124999,
+                                            quantity: 1,
+                                            image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                                        }
+                                    ]
+                                }
+                            ]
+                        });
+                    }, 500);
+                });
+            },
+
+            // Chat APIs
+            sendMessage: async (messageData) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            messageId: Date.now()
+                        });
+                    }, 300);
+                });
+            },
+
+            getChatHistory: async (userId, sellerId) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            messages: [
+                                {
+                                    id: 1,
+                                    sender: "seller",
+                                    message: "Hello! How can I help you with this product?",
+                                    timestamp: new Date(Date.now() - 300000)
+                                },
+                                {
+                                    id: 2,
+                                    sender: "user",
+                                    message: "I want to know about warranty details",
+                                    timestamp: new Date(Date.now() - 240000)
+                                },
+                                {
+                                    id: 3,
+                                    sender: "seller",
+                                    message: "This product comes with 1 year official warranty from Samsung",
+                                    timestamp: new Date(Date.now() - 180000)
+                                }
+                            ]
+                        });
+                    }, 500);
+                });
+            },
+
+            // Address APIs
+            saveAddress: async (addressData) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            addressId: Date.now()
+                        });
+                    }, 500);
+                });
+            },
+
+            getAddresses: async (userId) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({
+                            addresses: [
+                                {
+                                    id: 1,
+                                    name: "Home",
+                                    fullName: "Ali Ahmed",
+                                    phone: "0300-1234567",
+                                    address: "House 123, Street 45, Sector G-10",
+                                    city: "Islamabad",
+                                    postalCode: "44000",
+                                    isDefault: true
+                                }
+                            ]
+                        });
+                    }, 500);
+                });
+            }
+        };
+
+        // Application State
+        let currentUser = null;
+        let currentProduct = null;
+        let currentSeller = null;
+        let cart = [];
+        let addresses = [];
+
+        // DOM Elements
+        const elements = {
+            loginModal: document.getElementById('login-modal'),
+            orderModal: document.getElementById('order-modal'),
+            chatContainer: document.getElementById('chat-container'),
+            myAccountSection: document.getElementById('my-account-section'),
+            productsContainer: document.getElementById('products-container'),
+            userMenu: document.getElementById('user-menu'),
+            userName: document.getElementById('user-name')
+        };
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+            setupEventListeners();
+            loadProducts();
+        });
+
+        async function initializeApp() {
+            // Check if user is logged in
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUIAfterLogin();
+            }
+        }
+
+        function setupEventListeners() {
+            // Login/Logout
+            document.getElementById('login-btn').addEventListener('click', showLoginModal);
+            document.getElementById('close-login').addEventListener('click', hideLoginModal);
+            document.getElementById('login-submit').addEventListener('click', handleEmailLogin);
+            document.getElementById('google-login').addEventListener('click', handleGoogleLogin);
+            document.getElementById('facebook-login').addEventListener('click', handleFacebookLogin);
+            document.getElementById('logout-link').addEventListener('click', handleLogout);
+
+            // User Menu
+            document.getElementById('user-menu-toggle').addEventListener('click', toggleUserMenu);
+            document.getElementById('my-account-link').addEventListener('click', showMyAccount);
+            document.getElementById('my-orders-link').addEventListener('click', showMyOrders);
+            document.getElementById('my-addresses-link').addEventListener('click', showMyAddresses);
+
+            // Chat System
+            document.getElementById('close-chat').addEventListener('click', closeChat);
+            document.getElementById('send-message').addEventListener('click', sendMessage);
+            document.getElementById('chat-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            // Order System
+            document.getElementById('confirm-order').addEventListener('click', confirmOrder);
+            document.getElementById('close-order').addEventListener('click', hideOrderModal);
+
+            // Account Tabs
+            document.querySelectorAll('.account-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    switchAccountTab(this.dataset.tab);
+                });
+            });
+        }
+
+        async function loadProducts() {
+            try {
+                const response = await mockAPIs.getProducts();
+                renderProducts(response.products);
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
+
+        function renderProducts(products) {
+            const container = elements.productsContainer;
+            container.innerHTML = '';
+
+            products.forEach(product => {
+                const discount = calculateDiscount(product.price, product.originalPrice);
+                const sellerBadge = product.sellerVerified ? 
+                    '<span class="status-badge status-verified" style="font-size: 10px; padding: 2px 6px;">Verified</span>' : 
+                    '';
+
+                const productHTML = `
+                    <div class="product" data-id="${product.id}">
+                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                        <div class="product-img">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">${product.name}</h3>
+                            <div class="seller-info">
+                                Sold by: ${product.seller} ${sellerBadge}
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">Rs. ${product.price.toLocaleString()}</span>
+                                <span class="original-price">Rs. ${product.originalPrice.toLocaleString()}</span>
+                                <span class="discount">${discount}% off</span>
+                            </div>
+                            <div class="product-rating">
+                                ${generateStarRating(product.rating)}
+                                <span>(${product.reviews})</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Cart</button>
+                                <button class="buy-now" onclick="buyNow(${product.id})">Buy Now</button>
+                            </div>
+                            <button class="chat-with-seller" onclick="startChat(${product.sellerId}, '${product.seller}')">
+                                <i class="fas fa-comments"></i> Chat with Seller
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += productHTML;
+            });
+        }
+
+        function calculateDiscount(price, originalPrice) {
+            return Math.round(((originalPrice - price) / originalPrice) * 100);
+        }
+
+        function generateStarRating(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 !== 0;
+            
+            for (let i = 0; i < fullStars; i++) {
+                stars += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - Math.ceil(rating);
+            for (let i = 0; i < emptyStars; i++) {
+                stars += '<i class="far fa-star"></i>';
+            }
+            
+            return stars;
+        }
+
+        // Login Functions
+        function showLoginModal() {
+            elements.loginModal.classList.add('active');
+        }
+
+        function hideLoginModal() {
+            elements.loginModal.classList.remove('active');
+        }
+
+        async function handleEmailLogin() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            if (!email || !password) {
+                alert('Please enter both email and password');
+                return;
+            }
+
+            try {
+                const response = await mockAPIs.login(email, password);
+                if (response.success) {
+                    currentUser = response.user;
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    updateUIAfterLogin();
+                    hideLoginModal();
+                    alert(`Welcome back, ${currentUser.name}!`);
+                }
+            } catch (error) {
+                alert('Login failed. Please try again.');
+            }
+        }
+
+        async function handleGoogleLogin() {
+            // Simulate Google login
+            try {
+                const response = await mockAPIs.googleLogin('google_token_123');
+                if (response.success) {
+                    currentUser = response.user;
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    updateUIAfterLogin();
+                    hideLoginModal();
+                    alert(`Welcome, ${currentUser.name}! (Google Login)`);
+                }
+            } catch (error) {
+                alert('Google login failed. Please try again.');
+            }
+        }
+
+        async function handleFacebookLogin() {
+            // Simulate Facebook login
+            try {
+                const response = await mockAPIs.facebookLogin('facebook_token_123');
+                if (response.success) {
+                    currentUser = response.user;
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    updateUIAfterLogin();
+                    hideLoginModal();
+                    alert(`Welcome, ${currentUser.name}! (Facebook Login)`);
+                }
+            } catch (error) {
+                alert('Facebook login failed. Please try again.');
+            }
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateUIAfterLogout();
+            alert('You have been logged out.');
+        }
+
+        function updateUIAfterLogin() {
+            elements.userName.textContent = currentUser.name;
+            elements.userMenu.querySelectorAll('a').forEach(link => {
+                link.style.display = 'block';
+            });
+        }
+
+        function updateUIAfterLogout() {
+            elements.userName.textContent = 'Account';
+            elements.userMenu.querySelectorAll('a').forEach(link => {
+                if (link.id !== 'login-btn') {
+                    link.style.display = 'none';
+                }
+            });
+            elements.myAccountSection.style.display = 'none';
+        }
+
+        function toggleUserMenu() {
+            elements.userMenu.classList.toggle('active');
+        }
+
+        // Chat Functions
+        async function startChat(sellerId, sellerName) {
+            if (!currentUser) {
+                showLoginModal();
+                return;
+            }
+
+            currentSeller = { id: sellerId, name: sellerName };
+            elements.chatContainer.style.display = 'flex';
+            document.getElementById('chat-title').textContent = `Chat with ${sellerName}`;
+
+            // Load chat history
+            try {
+                const response = await mockAPIs.getChatHistory(currentUser.id, sellerId);
+                renderChatMessages(response.messages);
+            } catch (error) {
+                console.error('Error loading chat history:', error);
+            }
+        }
+
+        function closeChat() {
+            elements.chatContainer.style.display = 'none';
+            currentSeller = null;
+        }
+
+        function renderChatMessages(messages) {
+            const container = document.getElementById('chat-messages');
+            container.innerHTML = '';
+
+            messages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.className = `message ${message.sender === 'user' ? 'sent' : 'received'}`;
+                messageElement.textContent = message.message;
+                container.appendChild(messageElement);
+            });
+
+            container.scrollTop = container.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+
+            if (!message || !currentSeller) return;
+
+            // Add message to UI immediately
+            const messagesContainer = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message sent';
+            messageElement.textContent = message;
+            messagesContainer.appendChild(messageElement);
+
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Send to API
+            try {
+                await mockAPIs.sendMessage({
+                    userId: currentUser.id,
+                    sellerId: currentSeller.id,
+                    message: message,
+                    timestamp: new Date()
+                });
+
+                // Simulate seller response
+                setTimeout(() => {
+                    const responseElement = document.createElement('div');
+                    responseElement.className = 'message received';
+                    responseElement.textContent = "Thanks for your message! We'll get back to you soon.";
+                    messagesContainer.appendChild(responseElement);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 2000);
+
+            } catch (error) {
+                console.error('Error sending message:', error);
+            }
+        }
+
+        // Order Functions
+        function addToCart(productId) {
+            if (!currentUser) {
+                showLoginModal();
+                return;
+            }
+
+            // Add product to cart
+            const product = getProductById(productId);
+            if (product) {
+                cart.push(product);
+                updateCartCount();
+                alert(`${product.name} added to cart!`);
+            }
+        }
+
+        function buyNow(productId) {
+            if (!currentUser) {
+                showLoginModal();
+                return;
+            }
+
+            const product = getProductById(productId);
+            if (product) {
+                currentProduct = product;
+                showOrderModal(product);
+            }
+        }
+
+        function showOrderModal(product) {
+            const orderSummary = document.getElementById('order-summary');
+            orderSummary.innerHTML = `
+                <h3>Order Summary</h3>
+                <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                    <img src="${product.image}" alt="${product.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                    <div>
+                        <h4>${product.name}</h4>
+                        <p style="color: var(--primary); font-weight: bold; font-size: 18px;">Rs. ${product.price.toLocaleString()}</p>
+                        <p>Seller: ${product.seller}</p>
+                    </div>
+                </div>
+            `;
+
+            elements.orderModal.classList.add('active');
+        }
+
+        function hideOrderModal() {
+            elements.orderModal.classList.remove('active');
+        }
+
+        async function confirmOrder() {
+            const name = document.getElementById('delivery-name').value;
+            const phone = document.getElementById('delivery-phone').value;
+            const address = document.getElementById('delivery-address').value;
+            const city = document.getElementById('delivery-city').value;
+            const postalCode = document.getElementById('delivery-postal').value;
+
+            if (!name || !phone || !address || !city) {
+                alert('Please fill all required fields');
+                return;
+            }
+
+            const orderData = {
+                userId: currentUser.id,
+                product: currentProduct,
+                deliveryAddress: {
+                    name,
+                    phone,
+                    address,
+                    city,
+                    postalCode
+                },
+                total: currentProduct.price,
+                status: 'pending',
+                date: new Date()
+            };
+
+            try {
+                const response = await mockAPIs.createOrder(orderData);
+                if (response.success) {
+                    alert(`Order confirmed! Order ID: ${response.orderId}`);
+                    hideOrderModal();
+                    // Clear form
+                    document.getElementById('delivery-name').value = '';
+                    document.getElementById('delivery-phone').value = '';
+                    document.getElementById('delivery-address').value = '';
+                    document.getElementById('delivery-city').value = '';
+                    document.getElementById('delivery-postal').value = '';
+                }
+            } catch (error) {
+                alert('Error placing order. Please try again.');
+            }
+        }
+
+        // Account Functions
+        function showMyAccount() {
+            elements.myAccountSection.style.display = 'block';
+            elements.myAccountSection.scrollIntoView({ behavior: 'smooth' });
+            switchAccountTab('profile');
+        }
+
+        function showMyOrders() {
+            elements.myAccountSection.style.display = 'block';
+            elements.myAccountSection.scrollIntoView({ behavior: 'smooth' });
+            switchAccountTab('orders');
+            loadOrders();
+        }
+
+        function showMyAddresses() {
+            elements.myAccountSection.style.display = 'block';
+            elements.myAccountSection.scrollIntoView({ behavior: 'smooth' });
+            switchAccountTab('addresses');
+            loadAddresses();
+        }
+
+        function switchAccountTab(tabName) {
+            // Update tabs
+            document.querySelectorAll('.account-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`.account-tab[data-tab="${tabName}"]`).classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.account-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`${tabName}-content`).classList.add('active');
+        }
+
+        async function loadOrders() {
+            if (!currentUser) return;
+
+            try {
+                const response = await mockAPIs.getOrders(currentUser.id);
+                renderOrders(response.orders);
+            } catch (error) {
+                console.error('Error loading orders:', error);
+            }
+        }
+
+        function renderOrders(orders) {
+            const container = document.getElementById('orders-list');
+            container.innerHTML = '';
+
+            if (orders.length === 0) {
+                container.innerHTML = '<p>No orders found.</p>';
+                return;
+            }
+
+            orders.forEach(order => {
+                const orderHTML = `
+                    <div style="border: 1px solid #eee; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: between; margin-bottom: 10px;">
+                            <strong>Order ID: ${order.id}</strong>
+                            <span class="status-badge status-${order.status.toLowerCase()}">${order.status}</span>
+                        </div>
+                        <p>Date: ${order.date}</p>
+                        <p>Total: Rs. ${order.total.toLocaleString()}</p>
+                        <div style="margin-top: 10px;">
+                            ${order.items.map(item => `
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                                    <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
+                                    <div>
+                                        <p style="margin: 0; font-weight: 500;">${item.name}</p>
+                                        <p style="margin: 0; color: var(--primary);">Rs. ${item.price.toLocaleString()} x ${item.quantity}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += orderHTML;
+            });
+        }
+
+        async function loadAddresses() {
+            if (!currentUser) return;
+
+            try {
+                const response = await mockAPIs.getAddresses(currentUser.id);
+                addresses = response.addresses;
+                renderAddresses(addresses);
+            } catch (error) {
+                console.error('Error loading addresses:', error);
+            }
+        }
+
+        function renderAddresses(addresses) {
+            const container = document.getElementById('addresses-list');
+            container.innerHTML = '';
+
+            if (addresses.length === 0) {
+                container.innerHTML = '<p>No addresses saved.</p>';
+                return;
+            }
+
+            addresses.forEach(address => {
+                const addressHTML = `
+                    <div style="border: 1px solid #eee; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: between; align-items: start;">
+                            <div>
+                                <h4 style="margin: 0 0 5px 0;">${address.name} ${address.isDefault ? '(Default)' : ''}</h4>
+                                <p style="margin: 0;"><strong>${address.fullName}</strong></p>
+                                <p style="margin: 5px 0;">${address.phone}</p>
+                                <p style="margin: 5px 0;">${address.address}</p>
+                                <p style="margin: 0;">${address.city} - ${address.postalCode}</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm" onclick="editAddress(${address.id})">Edit</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteAddress(${address.id})">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += addressHTML;
+            });
+        }
+
+        // Utility Functions
+        function getProductById(productId) {
+            // This would typically call an API
+            const products = [
+                {
+                    id: 1,
+                    name: "Samsung Galaxy S21 Ultra 5G (256GB)",
+                    price: 124999,
+                    image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                    seller: "TechHub Pakistan"
+                },
+                {
+                    id: 2,
+                    name: "Nike Air Max Running Shoes - Men's",
+                    price: 8499,
+                    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
+                    seller: "Sports Gear"
+                }
+            ];
+            return products.find(p => p.id === productId);
+        }
+
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.length;
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        });
+
+        // Make functions global for HTML onclick attributes
+        window.addToCart = addToCart;
+        window.buyNow = buyNow;
+        window.startChat = startChat;
+    </script>
+</body>
+</html>
